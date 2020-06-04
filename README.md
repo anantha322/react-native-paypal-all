@@ -1,21 +1,13 @@
-# react-native-paypal
+# react-native-paypal-all
 
-[![npm version](https://img.shields.io/npm/v/react-native-paypal.svg)](https://www.npmjs.com/package/react-native-paypal)
-![npm](https://img.shields.io/npm/dm/react-native-paypal.svg)
-[![GitHub license](https://img.shields.io/github/license/smarkets/react-native-paypal.svg)](https://github.com/smarkets/react-native-paypal/blob/master/LICENSE)
-
-
-React Native library that implements PayPal [Checkout](https://developers.braintreepayments.com/guides/paypal/checkout-with-paypal/) flow using purely native code.
-
-![Demo](https://smrkts.co/2yqrDKT)
 
 ## Getting started
 
-`$ npm install react-native-paypal --save` or `$ yarn add react-native-paypal`
+`$ npm install react-native-paypal-all --save` or `$ yarn add react-native-paypal-all`
 
 ### Mostly automatic installation
 
-1. `$ react-native link react-native-paypal`. Check the result, if iOS and/or Android project files are unchanged, do the steps described in Manual installation. 
+1. `$ react-native link react-native-paypal-all`. Check the result, if iOS and/or Android project files are unchanged, do the steps described in Manual installation. 
 1. [Android] Add `implementation "com.braintreepayments.api:braintree:2.17.0"` in `android/app/build.gradle`.
 1. [iOS] Add `pod 'Braintree'` to your Podfile and run `pod install`. If you want, you can specify a version, e.g. `pod 'Braintree', '~> 4.19.0'`.
 1. [iOS] Register a URL scheme in Xcode (**must** always start with your Bundle Identifier and end in `.payments` - e.g. `your.app.id.payments`). See details [here](https://developers.braintreepayments.com/guides/paypal/client-side/ios/v4#register-a-url-type).
@@ -53,9 +45,9 @@ At this point you should be able to build both Android and iOS.
 #### iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-1. Go to `node_modules` ➜ `react-native-paypal` and add `RNPaypal.xcodeproj`
+1. Go to `node_modules` ➜ `react-native-paypal-all` and add `RNPaypal.xcodeproj`
 1. In XCode, in the project navigator, select your project. Add `libRNPaypal.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-1. In XCode, in the project navigator, select your project. Add `$(SRCROOT)/../node_modules/react-native-paypal/ios` to your project's `Build Settings` ➜ `Header Search Paths`
+1. In XCode, in the project navigator, select your project. Add `$(SRCROOT)/../node_modules/react-native-paypal-all/ios` to your project's `Build Settings` ➜ `Header Search Paths`
 
 #### Android
 
@@ -64,12 +56,12 @@ At this point you should be able to build both Android and iOS.
   - Add `new RNPaypalPackage()` to the list returned by the `getPackages()` method
 1. Append the following lines to `android/settings.gradle`:
   	```
-  	include ':react-native-paypal'
-  	project(':react-native-paypal').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-paypal/android')
+  	include ':react-native-paypal-all'
+  	project(':react-native-paypal-all').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-paypal-all/android')
   	```
 1. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      implementation project(':react-native-paypal')
+      implementation project(':react-native-paypal-all')
   	```
 
 
@@ -80,7 +72,7 @@ First you need to get a valid token from your server. Refer to [this](https://de
 Then you can execute the following code, for example reacting to a button press.
 
 ```javascript
-import { requestOneTimePayment } from 'react-native-paypal';
+import { requestOneTimePayment } from 'react-native-paypal-all';
 
 const {
 	nonce,
