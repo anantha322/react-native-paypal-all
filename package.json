@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-paypal-all",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "React Native library that implements PayPal Checkout flow using purely native code",
   "main": "index.js",
   "scripts": {
@@ -19,10 +19,10 @@
   ],
   "author": "Anantha Uppangala",
   "license": "MIT",
-  "homepage": "https://github.com/smarkets/react-native-paypal-all#readme",
+  "homepage": "https://github.com/anantha322/react-native-paypal-all#readme",
   "repository": {
     "type": "git",
-    "url": "git@github.com:smarkets/react-native-paypal-all.git"
+    "url": "git@github.com:anantha322/react-native-paypal-all.git"
   },
   "peerDependencies": {
     "react-native": "^0.55.2"
