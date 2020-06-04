@@ -9,10 +9,10 @@ Pod::Spec.new do |s|
   s.summary          = package['name']
   s.license          = package['license']
   s.description  = package['description']
-  s.homepage     = "https://github.com/smarkets/react-native-paypal"
-  s.author             = "Smarkets"
+  s.homepage     = "https://github.com/anantha322/react-native-paypal-all"
+  s.author             = "anantha322"
   s.platform     = :ios, "9.0"
-  s.source       = { :git => 'https://github.com/smarkets/react-native-paypal.git', :tag => s.version }
+  s.source       = { :git => 'https://github.com/anantha322/react-native-paypal-all.git', :tag => s.version }
   s.source_files  = "**/*.{h,m}"
   s.dependency "React"
   s.dependency "Braintree"
