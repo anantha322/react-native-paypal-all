@@ -76,6 +76,46 @@ public class RNPaypalModule extends ReactContextBaseJavaModule implements Activi
 
     PayPal.requestOneTimePayment(braintreeFragment, request);
   }
+  @ReactMethod
+  public void requestBillingAgreement(
+      final String token,
+      final ReadableMap options,
+      final Promise promise) {
+    BraintreeFragment braintreeFragment = null;
+    try {
+      braintreeFragment = initializeBraintreeFragment(token, promise);
+    } catch (Exception e) {
+      promise.reject("braintree_sdk_setup_failed", e);
+      return;
+    }
+
+    PayPalRequest request = new PayPalRequest(options.getString("amount"))
+        .intent(PayPalRequest.INTENT_AUTHORIZE);
+
+    if (options.hasKey("currency"))
+        request.currencyCode(options.getString("currency"));
+    if (options.hasKey("localeCode"))
+        request.localeCode(options.getString("localeCode"));
+    if (options.hasKey("shippingAddressRequired"))
+        request.shippingAddressRequired(options.getBoolean("shippingAddressRequired"));
+
+    if (options.hasKey("userAction") &&
+        PayPalRequest.USER_ACTION_COMMIT.equals(options.getString("userAction")))
+      request.userAction(PayPalRequest.USER_ACTION_COMMIT);
+
+    if (options.hasKey("intent")) {
+      String intent = options.getString("intent");
+      switch (intent) {
+        case PayPalRequest.INTENT_SALE:
+          request.intent(PayPalRequest.INTENT_SALE);
+          break;
+        case PayPalRequest.INTENT_ORDER:
+          request.intent(PayPalRequest.INTENT_ORDER);
+      }
+    }
+
+    PayPal.requestBillingAgreement(braintreeFragment, request);
+  }
 
   protected BraintreeFragment initializeBraintreeFragment(
       final String token,
