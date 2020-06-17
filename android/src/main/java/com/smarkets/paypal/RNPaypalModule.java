@@ -89,7 +89,7 @@ public class RNPaypalModule extends ReactContextBaseJavaModule implements Activi
       return;
     }
 
-    PayPalRequest request = new PayPalRequest(options.getString("amount"))
+    PayPalRequest request = new PayPalRequest()
         .intent(PayPalRequest.INTENT_AUTHORIZE);
 
     if (options.hasKey("currency"))
